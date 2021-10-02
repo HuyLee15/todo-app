@@ -1,10 +1,14 @@
+const { urlencoded } = require('express');
 const express = require('express');
 const connectDB = require('./config/database');
 const dotenv = require('dotenv').config({ path: './config/config.env' });
 const router = require('./routers');
+const bodyParser = require('body-parser');
 
 
 const app = express();
+app.use(bodyParser.urlencoded({ extended: false }));
+
 
 connectDB();
 
